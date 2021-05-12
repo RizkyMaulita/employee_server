@@ -7,5 +7,6 @@ router.post('/login', EmployeeController.login)
 
 router.use(employeeAuthentications)
 router.get('/profile', EmployeeController.getProfile)
+router.put('/profile', EmployeeController.updateProfile)
 
 module.exports = router

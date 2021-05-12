@@ -25,10 +25,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       start_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       end_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       status: {
         type: Sequelize.ENUM('0','1','2')

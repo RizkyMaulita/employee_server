@@ -16,7 +16,6 @@ const employeeAuthentications = async (req, res, next) => {
           where: {
             employee_id: decoded.employee_id,
             email: decoded.email,
-            name: decoded.name
           },
           attributes: ['employee_id']
         })
