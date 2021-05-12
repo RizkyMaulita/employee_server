@@ -1,5 +1,5 @@
-const { getCurrentDate } = require('../../helpers')
-const { Sold_Product, Product, Employee, sequelize } = require('../../models')
+const { getCurrentDate, convertRupiah } = require('../../helpers')
+const { Sold_Product, Product, sequelize } = require('../../models')
 
 module.exports = async (req, res, next) => {
   const t = await sequelize.transaction()
@@ -30,6 +30,7 @@ module.exports = async (req, res, next) => {
             employee_id: req.loginEmployee.employee_id,
             product_id: +product_id,
             quantity,
+            create_by: req.loginEmployee.employee_id,
             total_price: Number(quantity) * findProduct.total_price
           }
           const payloadProduct = {
@@ -63,8 +64,8 @@ module.exports = async (req, res, next) => {
                 message: `Successfully to create sales history !`,
                 data: {
                   product_name: findProduct.name,
-                  quantity,
-                  total_price: quantity * findProduct.total_price,
+                  quantity: +quantity,
+                  total_price: convertRupiah(quantity * findProduct.total_price),
                   remaining_stock: findProduct.stock - quantity
                 }
               })

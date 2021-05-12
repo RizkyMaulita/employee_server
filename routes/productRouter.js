@@ -6,5 +6,6 @@ router.get('/', ProductController.fetchProducts)
 
 router.use(employeeAuthentications)
 router.post('/:product_id/create', ProductController.createSalesHistory)
+router.get('/history', ProductController.fetchSalesHistory)
 
 module.exports = router
