@@ -1,4 +1,5 @@
 module.exports = {
   register: require('./register.js'),
-  login: require('./login.js')
+  login: require('./login.js'),
+  getProfile: require('./getProfile.js')
 }
